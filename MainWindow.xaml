@@ -42,7 +42,7 @@
                     <Image Source="Icons/power.ico"
                            Grid.Column="0"
                            VerticalAlignment="Center"
-                           HorizontalAlignment="Center" Height="35" Margin="6,0,10,0" Width="34"/>
+                           HorizontalAlignment="Center" Height="26" Margin="10,6,10,3" Width="30"/>
 
                     <TextBlock Text="DelayOFF" 
                                HorizontalAlignment="Center"
@@ -58,7 +58,7 @@
                     <Button x:Name="Close_btn" 
                             VerticalAlignment="Center" 
                             Grid.Column="4"
-                            Margin="6,6,4,7" 
+                            Margin="5,8,5,5" 
                             RenderTransformOrigin="0.721,0.683"
                             Click="Button_Click" 
                             Height="22"
@@ -76,7 +76,7 @@
                         </Button.Style>
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
-                                <Border x:Name="Close_btn" Width="22" Height="22"
+                                <Border x:Name="Close_btn" Width="21" Height="21"
                                 CornerRadius="100"
                                 Background="{TemplateBinding Background}"/>
                             </ControlTemplate>
@@ -86,7 +86,7 @@
                     <!-- Minimized window button -->
                     <Button x:Name="Minimized_btn"
                             Grid.Column="3" 
-                            Margin="1,6,0,7" 
+                            Margin="1,8,0,5" 
                             RenderTransformOrigin="0.721,0.683"
                             Click="Button_Click">
                         <Button.Style>
@@ -103,7 +103,7 @@
                         </Button.Style>
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
-                                <Border Width="22" Height="22"
+                                <Border Width="21" Height="21"
                                 CornerRadius="100"
                                 Background="{TemplateBinding Background}"/>
                             </ControlTemplate>
