@@ -1,0 +1,263 @@
+﻿<Window x:Class="DelayOFF_Program.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DelayOFF_Program"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        Title="DelayOFF" Height="400" Width="600"
+        AllowsTransparency="True">
+
+    <Border Width="Auto" Height="Auto" Name="Window"
+            BorderThickness="1"
+            CornerRadius="10"
+            Background="#414040">
+
+        <!-- Main window -->
+        <Grid x:Name="Root">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="383*"/>
+                <RowDefinition Height="80*"/>
+
+            </Grid.RowDefinitions>
+
+            <!-- Top panel -->
+            <Border CornerRadius="10,10,0,0" Background="#292929" x:Name="Top_panel" MouseDown="Top_panel_MouseDown" Margin="0,-5,0,5">
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="42*"/>
+                        <ColumnDefinition Width="192*"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="40"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Icon -->
+                    <Image Source="Icons/power.ico"
+                           Grid.Column="0"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" Height="35" Margin="6,0,10,0" Width="34"/>
+
+                    <TextBlock Text="DelayOFF" 
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               FontSize="15"
+                                Width="66" 
+                               Height="20" 
+                               Grid.Column="1" Margin="10,8,8,7"/>
+
+                    <!-- Close program button -->
+                    <Button x:Name="Close_btn" 
+                            VerticalAlignment="Center" 
+                            Grid.Column="4"
+                            Margin="6,6,4,7" 
+                            RenderTransformOrigin="0.721,0.683"
+                            Click="Button_Click" 
+                            Height="22"
+                            >
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#E74C3C"/>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#E01931"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="Close_btn" Width="22" Height="22"
+                                CornerRadius="100"
+                                Background="{TemplateBinding Background}"/>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <!-- Minimized window button -->
+                    <Button x:Name="Minimized_btn"
+                            Grid.Column="3" 
+                            Margin="1,6,0,7" 
+                            RenderTransformOrigin="0.721,0.683"
+                            Click="Button_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#55C34D"/>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#00D717"/>
+                                    </Trigger>
+
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="22" Height="22"
+                                CornerRadius="100"
+                                Background="{TemplateBinding Background}"/>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+            </Border>
+            <Grid Grid.Row="1" Panel.ZIndex="-1" Margin="-26,21,26,42" Grid.RowSpan="2">
+                <StackPanel Margin="-85,-73,165,222" RenderTransformOrigin="0.5,0.5">
+                    <StackPanel.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="51.655"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </StackPanel.RenderTransform>
+                    <Border Width="400" 
+                        Height="40" 
+                        Margin="0,0,100,10"
+                        Background="#19B5FE"
+                        RenderTransformOrigin="0.5,0.5"                      
+                        CornerRadius="20"/>
+
+                    <Border Width="400" 
+                        Height="40" 
+                        Margin="40,0,0,10"
+                        Background="#FB6686"
+                        RenderTransformOrigin="0.5,0.5"                      
+                        CornerRadius="20"/>
+
+                    <Border Width="400" 
+                        Height="40" 
+                        Margin="0,0,30,0"
+                        Background="#BF6EE0"
+                        RenderTransformOrigin="0.5,0.5"                      
+                        CornerRadius="20"/>
+                </StackPanel>
+                <StackPanel Margin="211,300,-131,-151" RenderTransformOrigin="0.5,0.5">
+                    <StackPanel.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="51.655"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </StackPanel.RenderTransform>
+                    <Border Width="400" 
+                        Height="40" 
+                        Margin="0,0,100,10"
+                        Background="#19B5FE"
+                        RenderTransformOrigin="0.5,0.5"                      
+                        CornerRadius="20"/>
+
+                    <Border Width="400" 
+                        Height="40" 
+                        Margin="40,0,0,10"
+                        Background="#FB6686"
+                        RenderTransformOrigin="0.5,0.5"                      
+                        CornerRadius="20"/>
+
+                    <Border Width="400" 
+                        Height="40" 
+                        Margin="0,0,30,0"
+                        Background="#BF6EE0"
+                        RenderTransformOrigin="0.5,0.5"                      
+                        CornerRadius="20"/>
+                </StackPanel>
+            </Grid>
+
+            <StackPanel Grid.Row="1"
+                        Orientation="Vertical"
+                        Margin="32,0,299,0">
+
+                <TextBox x:Name="hourBox" FontSize="15"
+                     Foreground="White"
+                     Margin="0, 30"
+                     
+                     materialDesign:HintAssist.Hint="Час"
+                     Style="{StaticResource MaterialDesignTextBox}"/>
+
+                <TextBox x:Name="minuteBox" FontSize="15"
+                     Foreground="White"
+                     Margin="0,0,0,30"
+                     Grid.Row="1"
+                     materialDesign:HintAssist.Hint="Минута"
+                     Style="{StaticResource MaterialDesignTextBox}"/>
+
+                <TextBox x:Name="secondBox" FontSize="15"
+                     Foreground="White"
+                     Grid.Row="1"
+                     materialDesign:HintAssist.Hint="Секунда"
+                     Style="{StaticResource MaterialDesignTextBox}"/>
+            </StackPanel>
+
+
+            <Border Grid.Row="1" Width="auto" Height="1" Background="Gray" VerticalAlignment="Bottom" Grid.ColumnSpan="3"/>
+            <!-- Bottom Button panel -->
+            <StackPanel Grid.Row="2" Orientation="Horizontal" Grid.ColumnSpan="3">
+
+                <!-- Delay off computer button -->
+                <Button x:Name="confirm_delayBtn" Width="100" Margin="30,15,0,15" Content="Отложить выкл."
+                        FontSize="12" FontWeight="Medium" Foreground="White"
+                        FontFamily="Fonts/#Rostov" Click="confirm_delayBtn_Click">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#7395AE"/>
+
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#557A95"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border CornerRadius="5"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <!-- Cancel delay off computer button -->
+                <Button x:Name="cancel_delayBtn" Width="100" 
+                        
+                        Margin="338,15,0,15" Content="Отмена" Foreground="#4A3A51"
+                        FontSize="13" FontWeight="Medium" FontFamily="Fonts/#Rostov" Click="cancel_delayBtn_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#E74C3C"/>
+
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C0392B"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="5"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
