@@ -31,18 +31,14 @@
             <Border CornerRadius="10,10,0,0" Background="#292929" x:Name="Top_panel" MouseDown="Top_panel_MouseDown" Margin="0,-5,0,5">
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="25*"/>
-                        <ColumnDefinition Width="42*"/>
-                        <ColumnDefinition Width="192*"/>
+                        <ColumnDefinition Width="53*"/>
+                        <ColumnDefinition Width="95*"/>
+                        <ColumnDefinition Width="370*"/>
                         <ColumnDefinition Width="40"/>
                         <ColumnDefinition Width="40"/>
                     </Grid.ColumnDefinitions>
 
                     <!-- Icon -->
-                    <Image Source="Icons/power.ico"
-                           Grid.Column="0"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center" Height="26" Margin="10,6,10,3" Width="30"/>
 
                     <TextBlock Text="DelayOFF" 
                                HorizontalAlignment="Center"
@@ -52,7 +48,7 @@
                                FontSize="15"
                                 Width="66" 
                                Height="20" 
-                               Grid.Column="1" Margin="10,8,8,7"/>
+                               Grid.Column="1" Margin="11,8,18,7"/>
 
                     <!-- Close program button -->
                     <Button x:Name="Close_btn" 
@@ -109,6 +105,9 @@
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
+                    <Image Source="Icons/power.ico"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" Height="22" Margin="15,6,14,7" Width="24" RenderTransformOrigin="0.942,0.86"/>
                 </Grid>
             </Border>
             <Grid Grid.Row="1" Panel.ZIndex="-1" Margin="-26,21,26,42" Grid.RowSpan="2">
@@ -175,6 +174,7 @@
             </Grid>
 
             <StackPanel Grid.Row="1"
+                        x:Name="InputBox"
                         Orientation="Vertical"
                         Margin="32,0,299,0">
 
@@ -205,11 +205,12 @@
             <StackPanel Grid.Row="2" Orientation="Horizontal" Grid.ColumnSpan="3">
 
                 <!-- Delay off computer button -->
-                <Button x:Name="confirm_delayBtn" Width="100" Margin="30,15,0,15" Content="Отложить выкл."
+                <Button x:Name="Confirm_delayBtn" Width="100" Margin="30,15,0,15" Content="Отложить выкл."
                         FontSize="12" FontWeight="Medium" Foreground="White"
-                        FontFamily="Fonts/#Rostov" Click="confirm_delayBtn_Click">
+                        Click="Confirm_delayBtn_Click">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
+                            <Setter Property="TextBlock.FontFamily" Value="Fonts/#Rostov"/>
                             <Setter Property="Background" Value="#7395AE"/>
                             <Setter Property="Cursor" Value="Hand"/>
                             <Style.Triggers>
@@ -232,10 +233,10 @@
                 </Button>
 
                 <!-- Cancel delay off computer button -->
-                <Button x:Name="cancel_delayBtn" Width="100" 
+                <Button x:Name="Cancel_delayBtn" Width="100" 
                         
                         Margin="338,15,0,15" Content="Отмена" Foreground="#4A3A51"
-                        FontSize="13" FontWeight="Medium" FontFamily="Fonts/#Rostov" Click="cancel_delayBtn_Click">
+                        FontSize="13" FontWeight="Medium" FontFamily="Fonts/#Rostov" Click="Cancel_delayBtn_Click">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="#E74C3C"/>

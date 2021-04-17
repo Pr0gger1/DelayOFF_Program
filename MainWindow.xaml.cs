@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Diagnostics;
 
 namespace DelayOFF_Program
@@ -44,7 +34,7 @@ namespace DelayOFF_Program
             }         
         }
 
-        private void confirm_delayBtn_Click(object sender, RoutedEventArgs e)
+        private void Confirm_delayBtn_Click(object sender, RoutedEventArgs e)
         {
             string cmd;
             int time;
@@ -63,7 +53,7 @@ namespace DelayOFF_Program
                 {
                     secondBox.Text = "0";
                 }
-
+                
                 time = (Convert.ToInt32(hourBox.Text) * 3600) + (Convert.ToInt32(minuteBox.Text) * 60) + (Convert.ToInt32(secondBox.Text));
 
                 cmd = $"shutdown -s -t {time}";
@@ -76,12 +66,14 @@ namespace DelayOFF_Program
                     Arguments = "/c " + cmd,
                     WindowStyle = ProcessWindowStyle.Hidden
                 };
-
                 Process.Start(exec_command);
+
+                hourBox.Text = "";
+                minuteBox.Text = "";
+                secondBox.Text = "";
             }
             catch
-            {
-                MessageBox.Show("Данные введены некорректно!");
+            {           
                 hourBox.Text = "";
                 minuteBox.Text = "";
                 secondBox.Text = "";
@@ -89,7 +81,7 @@ namespace DelayOFF_Program
             
         }
 
-        private void cancel_delayBtn_Click(object sender, RoutedEventArgs e)
+        private void Cancel_delayBtn_Click(object sender, RoutedEventArgs e)
         {
             string cmd;
             cmd = "shutdown -a";
