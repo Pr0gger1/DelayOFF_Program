@@ -34,46 +34,55 @@ namespace DelayOFF_Program
             }         
         }
 
+        private int Compute_time()
+        {
+            if (hourBox.Text == String.Empty)
+            {
+                hourBox.Text = "0";
+            }
+            if (minuteBox.Text == String.Empty)
+            {
+                minuteBox.Text = "0";
+            }
+            if (secondBox.Text == String.Empty)
+            {
+                secondBox.Text = "0";
+            }
+
+            int time = (Convert.ToInt32(hourBox.Text) * 3600) + (Convert.ToInt32(minuteBox.Text) * 60) + (Convert.ToInt32(secondBox.Text));
+
+            return time;
+        }
         private void Confirm_delayBtn_Click(object sender, RoutedEventArgs e)
         {
-            string cmd;
-            int time;
+            int time = Compute_time();
+            Confirm_delayBtn.IsEnabled = false;
+            Confirm_delayBtn.Opacity = 0.5;
 
             try
             {
-                if (hourBox.Text == String.Empty)
+                if (time != 0)
                 {
-                    hourBox.Text = "0";
-                }
-                if (minuteBox.Text == String.Empty)
-                {
-                    minuteBox.Text = "0";
-                }
-                if (secondBox.Text == String.Empty)
-                {
-                    secondBox.Text = "0";
+                    string cmd = $"shutdown -s -t {time}";
+
+                    var exec_command = new ProcessStartInfo
+                    {
+                        UseShellExecute = true,
+                        WorkingDirectory = @"C:\Windows\System32",
+                        FileName = @"C:\Windows\System32\cmd.exe",
+                        Arguments = "/c " + cmd,
+                        WindowStyle = ProcessWindowStyle.Hidden
+                    };
+                    Process.Start(exec_command);
+
+                    hourBox.Text = "";
+                    minuteBox.Text = "";
+                    secondBox.Text = "";
                 }
                 
-                time = (Convert.ToInt32(hourBox.Text) * 3600) + (Convert.ToInt32(minuteBox.Text) * 60) + (Convert.ToInt32(secondBox.Text));
-
-                cmd = $"shutdown -s -t {time}";
-
-                var exec_command = new ProcessStartInfo
-                {
-                    UseShellExecute = true,
-                    WorkingDirectory = @"C:\Windows\System32",
-                    FileName = @"C:\Windows\System32\cmd.exe",
-                    Arguments = "/c " + cmd,
-                    WindowStyle = ProcessWindowStyle.Hidden
-                };
-                Process.Start(exec_command);
-
-                hourBox.Text = "";
-                minuteBox.Text = "";
-                secondBox.Text = "";
             }
             catch
-            {           
+            {
                 hourBox.Text = "";
                 minuteBox.Text = "";
                 secondBox.Text = "";
@@ -83,6 +92,9 @@ namespace DelayOFF_Program
 
         private void Cancel_delayBtn_Click(object sender, RoutedEventArgs e)
         {
+            Confirm_delayBtn.IsEnabled = true;
+            Confirm_delayBtn.Opacity = 1;
+
             string cmd;
             cmd = "shutdown -a";
 
